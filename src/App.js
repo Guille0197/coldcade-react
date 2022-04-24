@@ -10,9 +10,10 @@ import "prismjs/themes/prism-coy.css";
 import "./index.css";
 
 import MainRoute from "./routes/MainRoute";
+import LayoutDashboard from "./pages/Dashboard/Layout";
 
 function App() {
-  return <MainRoute />;
+  return <LayoutDashboard />;
 }
 
 export default App;

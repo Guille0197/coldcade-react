@@ -9,7 +9,7 @@ const MainRoute = () => (
     <Route path="/login" element={<Login />}></Route>
     <Route path="/register" element={<Register />}></Route>
     <Route path="/passwordreset" element={<Passwordreset />}></Route>
-    <Route path="*" element={<Navigate to="/" replace />} />
+    {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
   </Routes>
 );
 
