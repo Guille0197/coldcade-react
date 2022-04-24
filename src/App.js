@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "primereact/resources/themes/bootstrap4-light-blue/theme.css"; //theme
+import "primereact/resources/primereact.min.css"; //core css
+import "primeicons/primeicons.css";
+
+import "primereact/resources/primereact.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
+import "prismjs/themes/prism-coy.css";
+import "./index.css";
+
+import MainRoute from "./routes/MainRoute";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          ColdCade <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <MainRoute />;
 }
 
 export default App;

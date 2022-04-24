@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Background Image Page Login */
+.bckImg {
+  background-image: url("https://moldstock.com/wp-content/uploads/2022/01/abstract-blur-furniture-decoration-and-warehouse-store.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
