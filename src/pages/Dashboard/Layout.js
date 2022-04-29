@@ -104,23 +104,11 @@ const LayoutDashboard = () => {
       ],
     },
     {
-      label: "UI Components",
-      icon: "pi pi-fw pi-sitemap",
-      items: [
-        {
-          label: "Form Layout",
-          icon: "pi pi-fw pi-id-card",
-          to: "/formlayout",
-        },
-        { label: "Input", icon: "pi pi-fw pi-check-square", to: "/input" },
-      ],
-    },
-    {
-      label: "Pages",
+      label: "Páginas",
       icon: "pi pi-fw pi-clone",
       items: [
         { label: "Crud", icon: "pi pi-fw pi-user-edit", to: "/crud" },
-        { label: "Empty", icon: "pi pi-fw pi-circle-off", to: "/empty" },
+        { label: "plantilla", icon: "pi pi-fw pi-circle-off", to: "/empty" },
       ],
     },
   ];
