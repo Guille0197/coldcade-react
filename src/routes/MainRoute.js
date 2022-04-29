@@ -9,13 +9,13 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 
 const MainRoute = () => (
   <Routes>
-    <Route path="/login" element={<Login />}></Route>
-    <Route path="/register" element={<Register />}></Route>
-    <Route path="/passwordreset" element={<Passwordreset />}></Route>
-    {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
-    <Route path="/" exact element={<Dashboard />}></Route>
-    <Route path="/empty" element={<EmptyPage />}></Route>
-    <Route path="/crud" element={<Crud />}></Route>
+    <Route exact path="/" element={<Dashboard />}></Route>
+    <Route exact path="/login" element={<Login />}></Route>
+    <Route exact path="/register" element={<Register />}></Route>
+    <Route exact path="/passwordreset" element={<Passwordreset />}></Route>
+    <Route exact path="/empty" element={<EmptyPage />}></Route>
+    <Route exact path="/crud" element={<Crud />}></Route>
+    <Route exact path="*" element={<Navigate to="/" replace />} />
   </Routes>
 );
 

@@ -342,15 +342,15 @@ const Crud = () => {
   const productDialogFooter = (
     <>
       <Button
-        label="Cancel"
+        label="Cancelar"
         icon="pi pi-times"
-        className="p-button-text"
+        className="p-button-danger"
         onClick={hideDialog}
       />
       <Button
-        label="Save"
+        label="Guardar"
         icon="pi pi-check"
-        className="p-button-text"
+        className="p-button-success "
         onClick={saveProduct}
       />
     </>
@@ -474,7 +474,7 @@ const Crud = () => {
             <Dialog
               visible={productDialog}
               style={{ width: "450px" }}
-              header="Product Details"
+              header="Detalles del Producto"
               modal
               className="p-fluid"
               footer={productDialogFooter}
@@ -489,7 +489,7 @@ const Crud = () => {
                 />
               )}
               <div className="field">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Nombre</label>
                 <InputText
                   id="name"
                   value={product.name}
@@ -501,11 +501,11 @@ const Crud = () => {
                   })}
                 />
                 {submitted && !product.name && (
-                  <small className="p-invalid">Name is required.</small>
+                  <small className="p-invalid">El nombres es obligatorio.</small>
                 )}
               </div>
               <div className="field">
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">Descripción</label>
                 <InputTextarea
                   id="description"
                   value={product.description}
@@ -517,7 +517,7 @@ const Crud = () => {
               </div>
 
               <div className="field">
-                <label className="mb-3">Category</label>
+                <label className="mb-3">Categoria</label>
                 <div className="formgrid grid">
                   <div className="field-radiobutton col-6">
                     <RadioButton
@@ -527,7 +527,7 @@ const Crud = () => {
                       onChange={onCategoryChange}
                       checked={product.category === "Accessories"}
                     />
-                    <label htmlFor="category1">Accessories</label>
+                    <label htmlFor="category1">Granos</label>
                   </div>
                   <div className="field-radiobutton col-6">
                     <RadioButton
@@ -537,7 +537,7 @@ const Crud = () => {
                       onChange={onCategoryChange}
                       checked={product.category === "Clothing"}
                     />
-                    <label htmlFor="category2">Clothing</label>
+                    <label htmlFor="category2">Vegetales</label>
                   </div>
                   <div className="field-radiobutton col-6">
                     <RadioButton
@@ -547,7 +547,7 @@ const Crud = () => {
                       onChange={onCategoryChange}
                       checked={product.category === "Electronics"}
                     />
-                    <label htmlFor="category3">Electronics</label>
+                    <label htmlFor="category3">Hortalizas</label>
                   </div>
                   <div className="field-radiobutton col-6">
                     <RadioButton
@@ -557,14 +557,14 @@ const Crud = () => {
                       onChange={onCategoryChange}
                       checked={product.category === "Fitness"}
                     />
-                    <label htmlFor="category4">Fitness</label>
+                    <label htmlFor="category4">Tuberculos</label>
                   </div>
                 </div>
               </div>
 
               <div className="formgrid grid">
                 <div className="field col">
-                  <label htmlFor="price">Price</label>
+                  <label htmlFor="price">Precio</label>
                   <InputNumber
                     id="price"
                     value={product.price}
@@ -575,7 +575,7 @@ const Crud = () => {
                   />
                 </div>
                 <div className="field col">
-                  <label htmlFor="quantity">Quantity</label>
+                  <label htmlFor="quantity">Cantidad</label>
                   <InputNumber
                     id="quantity"
                     value={product.quantity}

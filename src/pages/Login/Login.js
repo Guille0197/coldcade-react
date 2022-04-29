@@ -160,6 +160,8 @@ const Login = () => {
             loading={loading1}
           />
         </form>
+        <br />
+        <Link to="/"> 👉🏻 LOGIN SOLO PARA ADMIN 👈🏻</Link> (*Esto no ira en el prototipo*)
       </div>
     </div>
   );
