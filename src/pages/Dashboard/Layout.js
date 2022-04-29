@@ -15,7 +15,7 @@ import Crud from "../Crud";
 
 import "../../assets/layout/layout.scss";
 
-const LayoutDashboard = () => {
+const LayoutDashboard = ({children}) => {
   const [staticMenuInactive, setStaticMenuInactive] = useState(false);
   const [mobileMenuActive, setMobileMenuActive] = useState(false);
   const [mobileTopbarMenuActive, setMobileTopbarMenuActive] = useState(false);
@@ -163,11 +163,12 @@ const LayoutDashboard = () => {
 
       <div className="layout-main-container">
         <div className="layout-main">
-          <Routes>
+          {/* <Routes>
             <Route path="/" exact element={<Dashboard />}></Route>
             <Route path="/empty" element={<EmptyPage />}></Route>
             <Route path="/crud" element={<Crud />}></Route>
-          </Routes>
+          </Routes> */}
+            {children}
         </div>
         <AppFooter />
       </div>

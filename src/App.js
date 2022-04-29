@@ -13,7 +13,7 @@ import MainRoute from "./routes/MainRoute";
 import LayoutDashboard from "./pages/Dashboard/Layout";
 
 function App() {
-  return <LayoutDashboard />;
+  return <MainRoute />;
 }
 
 export default App;

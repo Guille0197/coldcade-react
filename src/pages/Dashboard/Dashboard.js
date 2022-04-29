@@ -4,6 +4,7 @@ import { Button } from 'primereact/button';
 import { Chart } from 'primereact/chart';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import LayoutDashboard from './Layout';
 
 const lineData = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -110,6 +111,7 @@ const Dashboard = (props) => {
     };
 
     return (
+        <LayoutDashboard>
         <div className="grid">
             <div className="col-12 lg:col-6 xl:col-3">
                 <div className="card mb-0">
@@ -278,6 +280,7 @@ const Dashboard = (props) => {
                 </div>
             </div>
         </div>
+        </LayoutDashboard>
     );
 }
 
