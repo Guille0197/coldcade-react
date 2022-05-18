@@ -18,13 +18,13 @@ const Login = () => {
   //#region Formik
   const formik = useFormik({
     initialValues: {
-      name: "",
+      username: "",
       password: "",
     },
     validate: (data) => {
       let errors = {};
-      if (!data.name) {
-        errors.name = "Nombre de usuario obligatorio.";
+      if (!data.username) {
+        errors.username = "Nombre de usuario obligatorio.";
       }
       if (!data.password) {
         errors.password = "Contraseña obligatoria.";
@@ -37,19 +37,19 @@ const Login = () => {
     },
   });
 
-  const isFormFieldValid = (name) =>
-    !!(formik.touched[name] && formik.errors[name]);
-  const getFormErrorMessage = (name) => {
+  const isFormFieldValid = (username) =>
+    !!(formik.touched[username] && formik.errors[username]);
+  const getFormErrorMessage = (username) => {
     return (
-      isFormFieldValid(name) && (
-        <small className="p-error">{formik.errors[name]}</small>
+      isFormFieldValid(username) && (
+        <small className="p-error">{formik.errors[username]}</small>
       )
     );
   };
   //#endregion
 
   const handleLogin = (params) => {
-    API.post("/login", { params })
+    API.post("/login/", { params })
       .then((response) => {
         console.log(response.data);
         console.log(params);
@@ -99,25 +99,25 @@ const Login = () => {
             <span className="p-float-label p-input-icon-right">
               <i className="pi pi-user" />
               <InputText
-                id="name"
-                name="name"
-                value={formik.values.name}
+                id="username"
+                name="username"
+                value={formik.values.username}
                 onChange={formik.handleChange}
                 autoFocus
                 className={classNames({
-                  "p-invalid": isFormFieldValid("name"),
+                  "p-invalid": isFormFieldValid("username"),
                 })}
               />
               <label
-                htmlFor="name"
+                htmlFor="username"
                 className={classNames({
-                  "p-error": isFormFieldValid("name"),
+                  "p-error": isFormFieldValid("username"),
                 })}
               >
                 Nombre de usuario
               </label>
             </span>
-            {getFormErrorMessage("name")}
+            {getFormErrorMessage("username")}
           </div>
           <div className="field">
             <span className="p-float-label">
