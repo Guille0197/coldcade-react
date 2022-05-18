@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { classNames } from "primereact/utils";
 import { Tooltip } from "primereact/tooltip";
@@ -9,13 +9,9 @@ import { AppTopbar } from "./AppTopbar";
 import { AppFooter } from "./AppFooter";
 import { AppMenu } from "./AppMenu";
 
-import Dashboard from "./Dashboard";
-import EmptyPage from "../EmptyPage";
-import Crud from "../Crud";
-
 import "../../assets/layout/layout.scss";
 
-const LayoutDashboard = ({children}) => {
+const LayoutDashboard = ({ children }) => {
   const [staticMenuInactive, setStaticMenuInactive] = useState(false);
   const [mobileMenuActive, setMobileMenuActive] = useState(false);
   const [mobileTopbarMenuActive, setMobileTopbarMenuActive] = useState(false);
@@ -168,7 +164,7 @@ const LayoutDashboard = ({children}) => {
             <Route path="/empty" element={<EmptyPage />}></Route>
             <Route path="/crud" element={<Crud />}></Route>
           </Routes> */}
-            {children}
+          {children}
         </div>
         <AppFooter />
       </div>

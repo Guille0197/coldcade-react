@@ -93,7 +93,6 @@ const Login = () => {
             ¡Crear cuenta nueva!
           </Link>
         </div>
-
         <form onSubmit={formik.handleSubmit} className="p-fluid">
           <div className="field pb-3">
             <span className="p-float-label p-input-icon-right">
@@ -161,7 +160,13 @@ const Login = () => {
           />
         </form>
         <br />
-        <Link to="/"> 👉🏻 LOGIN SOLO PARA ADMIN 👈🏻</Link> (*Esto no ira en el prototipo*)
+        <Link to="/">
+          {" "}
+          <span role="img" aria-label="img">
+            👉🏻 LOGIN SOLO PARA ADMIN👈🏻
+          </span>
+        </Link>{" "}
+        (*Esto no ira en el prototipo*)
       </div>
     </div>
   );

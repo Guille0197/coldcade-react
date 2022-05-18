@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export const AppFooter = () => {
   return (
@@ -11,6 +10,7 @@ export const AppFooter = () => {
         color="inherit"
         href="https://github.com/Guille0197/coldcade-react"
         target="_blank"
+        rel="noopener noreferrer"
       >
         Github
       </a>

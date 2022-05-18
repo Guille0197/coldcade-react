@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { classNames } from "primereact/utils";
 
 export const AppTopbar = (props) => {
