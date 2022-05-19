@@ -6,21 +6,11 @@ import { InputText } from "primereact/inputtext";
 import { Messages } from "primereact/messages";
 import { classNames } from "primereact/utils";
 import { Link, useNavigate } from "react-router-dom";
-import API from "../../services/API";
 import Logo from "../../assets/AquiTuLogo.png";
 
 const Passwordreset = () => {
   const [loading1, setLoading1] = useState(false);
-  const navigate = useNavigate();
   const message = useRef();
-
-  const onLoadingClickSubmit = () => {
-    setLoading1(true);
-    setTimeout(() => {
-      navigate("/login");
-      setLoading1(false);
-    }, 2000);
-  };
 
   //#region Formik
   const formik = useFormik({
@@ -58,17 +48,7 @@ const Passwordreset = () => {
   //#endregion
 
   const handlePasswordReset = (params) => {
-    API.post("/passwordreset", params)
-      .then((response) => {
-        console.log(response.data);
-        console.log(params);
-        addSuccessMessage();
-        onLoadingClickSubmit();
-      })
-      .catch((error) => {
-        console.log(error);
-        addErrorMessage();
-      });
+    addErrorMessage();
   };
 
   const addSuccessMessage = () => {

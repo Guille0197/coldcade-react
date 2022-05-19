@@ -5,15 +5,16 @@ import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
 import { Checkbox } from "primereact/checkbox";
-import { Dropdown } from "primereact/dropdown";
 import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
 import { Messages } from "primereact/messages";
 import { Link, useNavigate } from "react-router-dom";
-import API from "../../services/API";
 import Logo from "../../assets/AquiTuLogo.png";
+import { postRegisterUser } from "../../services/API";
+import { useAuth } from "../../Hooks/useAuth";
 
 const Register = () => {
+  const authenticated = useAuth();  
   const [loading1, setLoading1] = useState(false);
   const navigate = useNavigate();
   const message = useRef();
@@ -24,8 +25,9 @@ const Register = () => {
       name: "",
       password: "",
       email: "",
+      address: "",
+      cellphone: "",
       accept: false,
-      country: null,
     },
     validate: (data) => {
       let errors = {};
@@ -45,6 +47,12 @@ const Register = () => {
       }
       if (!data.accept) {
         errors.accept = "Es necesario que acepte los términos y condiciones.";
+      }
+      if (!data.address) {
+        errors.address = "La dirección es obligatoria.";
+      }
+      if (!data.cellphone) {
+        errors.cellphone = "El número de teléfono es obligatorio.";
       }
       return errors;
     },
@@ -67,15 +75,19 @@ const Register = () => {
   //#endregion
 
   const handleRegister = (params) => {
-    API.post("/register", { params })
-      .then((response) => {
-        console.log(response.data);
-        console.log(params);
-        onLoadingClickSubmit();
-        navigate("/");
+    postRegisterUser(params)
+      .then(() => {
+        // addSuccessMessage(); // TODO: add success message
+        // alert("Registro exitoso");
+        authenticated.signin(params, () => {
+          navigate("/");
+        });
+        setLoading1(true);
+        // setTimeout(() => {
+        //   navigate("/");
+        // }, 1000);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         addErrorMessage();
       });
   };
@@ -85,14 +97,6 @@ const Register = () => {
       severity: "error",
       content: "Error al registrarse. Intente nuevamente.",
     });
-  };
-
-  const onLoadingClickSubmit = () => {
-    setLoading1(true);
-    setTimeout(() => {
-      alert("Registrando usuario...");
-      setLoading1(false);
-    }, 2000);
   };
 
   const header = <h6>Elige una contraseña</h6>;
@@ -118,7 +122,7 @@ const Register = () => {
         </div>
 
         <form onSubmit={formik.handleSubmit} className="p-fluid">
-          <div className="field pb-2">
+          <div className="field pb-3">
             <span className="p-float-label p-input-icon-right">
               <i className="pi pi-user" />
               <InputText
@@ -142,7 +146,7 @@ const Register = () => {
             </span>
             {getFormErrorMessage("name")}
           </div>
-          <div className="field pb-2">
+          <div className="field pb-3">
             <span className="p-float-label p-input-icon-right">
               <i className="pi pi-envelope" />
               <InputText
@@ -163,7 +167,7 @@ const Register = () => {
             </span>
             {getFormErrorMessage("email")}
           </div>
-          <div className="field pb-2">
+          <div className="field pb-3">
             <span className="p-float-label">
               <Password
                 id="password"
@@ -192,18 +196,52 @@ const Register = () => {
             </span>
             {getFormErrorMessage("password")}
           </div>
-          <div className="field pb-2">
-            <span className="p-float-label">
-              <Dropdown
-                id="country"
-                name="country"
-                value={formik.values.country}
+          <div className="field pb-3">
+            <span className="p-float-label p-input-icon-right">
+              <i className="pi pi-map-marker" />
+              <InputText
+                id="address"
+                name="address"
+                value={formik.values.address}
                 onChange={formik.handleChange}
-                // options={countries}
-                optionLabel="name"
+                className={classNames({
+                  "p-invalid": isFormFieldValid("address"),
+                })}
               />
-              <label htmlFor="country">Provincia</label>
+              <label
+                htmlFor="address"
+                className={classNames({
+                  "p-error": isFormFieldValid("address"),
+                })}
+              >
+                Dirección
+              </label>
             </span>
+            {getFormErrorMessage("address")}
+          </div>
+          <div className="field pb-3">
+            <span className="p-float-label p-input-icon-right">
+              <i className="pi pi-phone" />
+              <InputText // TODO: Add phone validation - temporal
+                id="cellphone"
+                name="cellphone"
+                type="number"
+                value={formik.values.cellphone}
+                onChange={formik.handleChange}
+                className={classNames({
+                  "p-invalid": isFormFieldValid("cellphone"),
+                })}
+              />
+              <label
+                htmlFor="cellphone"
+                className={classNames({
+                  "p-error": isFormFieldValid("cellphone"),
+                })}
+              >
+                Celular
+              </label>
+            </span>
+            {getFormErrorMessage("cellphone")}
           </div>
           <div className="field-checkbox">
             <Checkbox

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { useFormik } from "formik";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
@@ -7,10 +7,12 @@ import { Password } from "primereact/password";
 import { Messages } from "primereact/messages";
 import { classNames } from "primereact/utils";
 import { Link, useNavigate } from "react-router-dom";
-import API from "../../services/API";
 import Logo from "../../assets/AquiTuLogo.png";
+import { getAccessLogin } from "../../services/API";
+import { useAuth } from "../../Hooks/useAuth";
 
 const Login = () => {
+  const authenticated = useAuth();  
   const [loading1, setLoading1] = useState(false);
   const navigate = useNavigate();
   const message = useRef();
@@ -48,16 +50,19 @@ const Login = () => {
   };
   //#endregion
 
+  // Login
   const handleLogin = (params) => {
-    API.post("/login/", { params })
-      .then((response) => {
-        console.log(response.data);
-        console.log(params);
-        onLoadingClickSubmit();
-        navigate("/");
+    getAccessLogin(params)
+      .then(() => {
+        authenticated.signin(params, () => {
+          navigate("/");
+        });
+        setLoading1(true);
+        // setTimeout(() => {
+        //   navigate("/");
+        // }, 1000);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         addErrorMessage();
       });
   };
@@ -67,14 +72,6 @@ const Login = () => {
       severity: "error",
       content: "Usuario o contraseña incorrectos.",
     });
-  };
-
-  const onLoadingClickSubmit = () => {
-    setLoading1(true);
-    setTimeout(() => {
-      alert("Iniciando sesión...");
-      setLoading1(false);
-    }, 1500);
   };
 
   return (
@@ -159,14 +156,6 @@ const Login = () => {
             loading={loading1}
           />
         </form>
-        <br />
-        <Link to="/">
-          {" "}
-          <span role="img" aria-label="img">
-            👉🏻 LOGIN SOLO PARA ADMIN👈🏻
-          </span>
-        </Link>{" "}
-        (*Esto no ira en el prototipo*)
       </div>
     </div>
   );

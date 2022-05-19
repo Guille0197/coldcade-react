@@ -6,17 +6,47 @@ import Passwordreset from "../pages/Login/Passwordreset";
 import EmptyPage from "../pages/EmptyPage";
 import Crud from "../pages/Crud";
 import Dashboard from "../pages/Dashboard/Dashboard";
+import { RequireAuth } from "./RequireAuth";
+import { AuthProvider } from "./AuthProvider";
 
 const MainRoute = () => (
-  <Routes>
-    <Route exact path="/" element={<Dashboard />}></Route>
-    <Route exact path="/login" element={<Login />}></Route>
-    <Route exact path="/register" element={<Register />}></Route>
-    <Route exact path="/passwordreset" element={<Passwordreset />}></Route>
-    <Route exact path="/empty" element={<EmptyPage />}></Route>
-    <Route exact path="/crud" element={<Crud />}></Route>
-    <Route exact path="*" element={<Navigate to="/" replace />} />
-  </Routes>
+  <AuthProvider>
+    <Routes>
+      <Route exact path="*" element={<Navigate to="/login" replace />} />
+      <Route exact path="/login" element={<Login />}></Route>
+      <Route exact path="/register" element={<Register />}></Route>
+      <Route exact path="/passwordreset" element={<Passwordreset />}></Route>
+
+      {/* ROUTES PRIVATES */}
+      <Route
+        exact
+        path="/"
+        element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        }
+      ></Route>
+      <Route
+        exact
+        path="/empty"
+        element={
+          <RequireAuth>
+            <EmptyPage />
+          </RequireAuth>
+        }
+      ></Route>
+      <Route
+        exact
+        path="/crud"
+        element={
+          <RequireAuth>
+            <Crud />
+          </RequireAuth>
+        }
+      ></Route>
+    </Routes>
+  </AuthProvider>
 );
 
 export default MainRoute;
