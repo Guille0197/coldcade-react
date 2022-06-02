@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef } from "react";
 import { useFormik } from "formik";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
@@ -12,7 +12,7 @@ import { getAccessLogin } from "../../services/API";
 import { useAuth } from "../../Hooks/useAuth";
 
 const Login = () => {
-  const authenticated = useAuth();  
+  const authenticated = useAuth();
   const [loading1, setLoading1] = useState(false);
   const navigate = useNavigate();
   const message = useRef();
