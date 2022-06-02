@@ -9,10 +9,18 @@ import "primeflex/primeflex.css";
 import "prismjs/themes/prism-coy.css";
 import "./index.css";
 
+import { QueryClient, QueryClientProvider } from "react-query";
+
 import MainRoute from "./routes/MainRoute";
 
+const queryClient = new QueryClient();
+
 function App() {
-  return <MainRoute />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <MainRoute />{" "}
+    </QueryClientProvider>
+  );
 }
 
 export default App;

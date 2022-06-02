@@ -15,9 +15,11 @@
     "prismjs": "^1.28.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-query": "^3.39.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "sass": "^1.50.1",
+    "sweetalert2": "^11.4.17",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

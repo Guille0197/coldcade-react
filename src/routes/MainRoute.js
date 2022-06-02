@@ -8,6 +8,7 @@ import Crud from "../pages/Crud";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import { RequireAuth } from "./RequireAuth";
 import { AuthProvider } from "./AuthProvider";
+import Product from "../pages/CRUD/Product/Product";
 
 const MainRoute = () => (
   <AuthProvider>
@@ -42,6 +43,15 @@ const MainRoute = () => (
         element={
           <RequireAuth>
             <Crud />
+          </RequireAuth>
+        }
+      ></Route>
+      <Route
+        exact
+        path="/product"
+        element={
+          <RequireAuth>
+            <Product />
           </RequireAuth>
         }
       ></Route>

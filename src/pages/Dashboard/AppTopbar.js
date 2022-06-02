@@ -1,12 +1,43 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { classNames } from "primereact/utils";
+import { useAuth } from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 export const AppTopbar = (props) => {
+  const authenticated = useAuth();
+  const navigate = useNavigate();
+
+  const sweetAlert = () => {
+    Swal.fire({
+      title: "¿Está seguro?",
+      text: "Deseas cerrar sesión",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, cerrar sesión",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        authenticated.signout(() => {
+          navigate("/login");
+        });
+      }
+    });
+  };
+
   return (
     <div className="layout-topbar">
       <Link to="/" className="layout-topbar-logo">
-        {/* <img src={props.layoutColorMode === 'light' ? 'assets/layout/images/logo-dark.svg' : 'assets/layout/images/logo-white.svg'} alt="logo"/> */}
+        <img
+          src={
+            props.layoutColorMode === "light"
+              ? "assets/layout/images/logo-dark.svg"
+              : "assets/layout/images/logo-white.svg"
+          }
+          alt="logo"
+        />
         <span>Cadena de suministro</span>
       </Link>
 
@@ -32,16 +63,23 @@ export const AppTopbar = (props) => {
         })}
       >
         <li>
-          {/* <button className="p-link layout-topbar-button" onClick={props.onMobileSubTopbarMenuClick}> */}
-          <Link
-            to="/login"
+          <button
             className="p-link layout-topbar-button"
             // onClick={props.onMobileSubTopbarMenuClick}
           >
             <i className="pi pi-user" />
             <span>Profile</span>
-          </Link>
-          {/* </button> */}
+          </button>
+        </li>
+        <li>
+          <button
+            title="Cerrar sesión"
+            className="p-link layout-topbar-button"
+            onClick={sweetAlert}
+          >
+            <i className="pi pi-sign-out" />
+            <span>Cerrar Sesión</span>
+          </button>
         </li>
       </ul>
     </div>

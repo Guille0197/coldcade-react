@@ -58,9 +58,6 @@ const Login = () => {
           navigate("/");
         });
         setLoading1(true);
-        // setTimeout(() => {
-        //   navigate("/");
-        // }, 1000);
       })
       .catch(() => {
         addErrorMessage();

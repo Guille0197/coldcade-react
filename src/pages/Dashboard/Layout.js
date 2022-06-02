@@ -105,6 +105,11 @@ const LayoutDashboard = ({ children }) => {
       items: [
         { label: "Crud", icon: "pi pi-fw pi-user-edit", to: "/crud" },
         { label: "plantilla", icon: "pi pi-fw pi-circle-off", to: "/empty" },
+        {
+          label: "Productos",
+          icon: "pi pi-shopping-bag",
+          to: "/product",
+        },
       ],
     },
   ];

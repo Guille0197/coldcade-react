@@ -327,13 +327,13 @@ const Crud = () => {
 
   const header = (
     <div className="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-      <h5 className="m-0">Manage Products</h5>
+      <h5 className="m-0">Administrar listado</h5>
       <span className="block mt-2 md:mt-0 p-input-icon-left">
         <i className="pi pi-search" />
         <InputText
           type="search"
           onInput={(e) => setGlobalFilter(e.target.value)}
-          placeholder="Search..."
+          placeholder="Buscar..."
         />
       </span>
     </div>
@@ -411,9 +411,9 @@ const Crud = () => {
               rowsPerPageOptions={[5, 10, 25]}
               className="datatable-responsive"
               paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
+              currentPageReportTemplate="Mostrando {first} para {last} de {totalRecords} resultados"
               globalFilter={globalFilter}
-              emptyMessage="No products found."
+              emptyMessage="No se han encontrado resultados."
               header={header}
               responsiveLayout="scroll"
             >
@@ -501,7 +501,9 @@ const Crud = () => {
                   })}
                 />
                 {submitted && !product.name && (
-                  <small className="p-invalid">El nombres es obligatorio.</small>
+                  <small className="p-invalid">
+                    El nombres es obligatorio.
+                  </small>
                 )}
               </div>
               <div className="field">

@@ -60,7 +60,7 @@ const postRegisterUser = async ({
     })
     .catch((error) => {
       console.log(error);
-      return error;
+      return Promise.reject(error);
     });
 };
 
