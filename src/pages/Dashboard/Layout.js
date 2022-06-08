@@ -163,14 +163,7 @@ const LayoutDashboard = ({ children }) => {
       </div>
 
       <div className="layout-main-container">
-        <div className="layout-main">
-          {/* <Routes>
-            <Route path="/" exact element={<Dashboard />}></Route>
-            <Route path="/empty" element={<EmptyPage />}></Route>
-            <Route path="/crud" element={<Crud />}></Route>
-          </Routes> */}
-          {children}
-        </div>
+        <div className="layout-main">{children}</div>
         <AppFooter />
       </div>
 

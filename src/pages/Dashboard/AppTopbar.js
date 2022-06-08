@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { classNames } from "primereact/utils";
 import { useAuth } from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import logo from "././../../assets/logo.png";
 
 export const AppTopbar = (props) => {
   const authenticated = useAuth();
@@ -31,14 +32,12 @@ export const AppTopbar = (props) => {
     <div className="layout-topbar">
       <Link to="/" className="layout-topbar-logo">
         <img
-          src={
-            props.layoutColorMode === "light"
-              ? "assets/layout/images/logo-dark.svg"
-              : "assets/layout/images/logo-white.svg"
-          }
+          src={logo}
           alt="logo"
+          height={300}
+          width={200}
+          style={{ textAlign: "center" }}
         />
-        <span>Cadena de suministro</span>
       </Link>
 
       <button

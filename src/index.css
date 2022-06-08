@@ -1,20 +1,20 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 /* Background Image Page Login */
 .bckImg {
-  background-image: url("https://moldstock.com/wp-content/uploads/2022/01/abstract-blur-furniture-decoration-and-warehouse-store.jpg");
+  background-image: url("./assets/blur-warehouse-background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -22,4 +22,3 @@ code {
   width: 100vw;
   display: flex;
 }
-

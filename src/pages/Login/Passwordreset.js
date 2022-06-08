@@ -6,7 +6,7 @@ import { InputText } from "primereact/inputtext";
 import { Messages } from "primereact/messages";
 import { classNames } from "primereact/utils";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/AquiTuLogo.png";
+import Logo from "../../assets/logo.png";
 
 const Passwordreset = () => {
   const [loading1, setLoading1] = useState(false);
@@ -69,7 +69,7 @@ const Passwordreset = () => {
     <div className="flex align-items-center justify-content-center bckImg">
       <div className="surface-card p-4 shadow-2 border-round w-full lg:w-6">
         <div className="text-center mb-5">
-          <img src={Logo} alt="LOGO" height={50} className="mb-3" />
+          <img src={Logo} alt="LOGO" height={100} className="mb-3" />
           <div className="text-900 text-3xl font-medium mb-3">
             ¿Tienes problemas para iniciar sesión?
           </div>

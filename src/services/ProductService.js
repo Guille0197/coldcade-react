@@ -42,18 +42,24 @@ export const createProductService = async (
   typeProduct,
   date_harvest,
   container_uuid_code,
-  client_uuid
+  client_uuid,
+  cant_product
 ) => {
+  const dateHarvest = new Date(date_harvest)
+    .toLocaleDateString("en-CA")
+    .split("/")
+    .join("-");
   return await axios
     .post(
       `${baseURL}/product/`,
       {
         body: {
           cli_uuid: client_uuid,
-          harvest_date: new Date(date_harvest).toLocaleDateString("es-US"),
-          type: typeProduct,
+          harvest_date: dateHarvest,
+          type: typeProduct.name,
           name: nameProduct,
           container_uuid: container_uuid_code,
+          prod_qty: cant_product,
         },
       },
       {
@@ -77,18 +83,24 @@ export const UpdateProductService = async (
   typeProduct,
   date_harvest,
   container_uuid_code,
-  client_uuid
+  client_uuid,
+  cant_product
 ) => {
+  const dateHarvest = new Date(date_harvest)
+    .toLocaleDateString("en-CA")
+    .split("/")
+    .join("-");
   return await axios
     .put(
       `${baseURL}/product/${uuid}`,
       {
         body: {
           cli_uuid: client_uuid,
-          harvest_date: "2022-03-05",
-          type: typeProduct,
+          harvest_date: dateHarvest,
+          type: typeProduct.name,
           name: nameProduct,
           container_uuid: container_uuid_code,
+          prod_qty: cant_product,
         },
       },
       {

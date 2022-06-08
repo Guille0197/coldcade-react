@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { classNames } from "primereact/utils";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
@@ -6,7 +6,7 @@ import { Toast } from "primereact/toast";
 import { Button } from "primereact/button";
 import { FileUpload } from "primereact/fileupload";
 import { Toolbar } from "primereact/toolbar";
-import { InputNumber } from "primereact/inputnumber";
+import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
@@ -30,7 +30,22 @@ const Product = () => {
     prod_harvest_date: "",
     container_uuid: "",
     cli_uuid: "",
+    prod_qty: "",
   };
+
+  const dropdownValues = [
+    { name: "Vegetal", code: "001" },
+    { name: "Fruta", code: "002" },
+    { name: "Legumbres", code: "003" },
+    { name: "Granos", code: "004" },
+    { name: "Tubérculos", code: "005" },
+    { name: "Hortalizas", code: "006" },
+    { name: "Cereales", code: "007" },
+    { name: "Carnes", code: "008" },
+    { name: "Pescados", code: "009" },
+    { name: "Lácteos", code: "010" },
+    { name: "Frutos secos", code: "011" },
+  ];
 
   // USE STATE
   // const [products, setProducts] = useState(null);
@@ -136,7 +151,8 @@ const Product = () => {
           _product.prod_type,
           _product.prod_harvest_date,
           _product.container_uuid,
-          _product.cli_uuid
+          _product.cli_uuid,
+          _product.prod_qty
         )
           .then(() => {
             toast.current.show({
@@ -160,7 +176,8 @@ const Product = () => {
           _product.prod_type,
           _product.prod_harvest_date,
           _product.container_uuid,
-          _product.cli_uuid
+          _product.cli_uuid,
+          _product.prod_qty
         )
           .then(() => {
             toast.current.show({
@@ -188,13 +205,6 @@ const Product = () => {
     const val = (e.target && e.target.value) || "";
     let _product = { ...product };
     _product[`${prod_name}`] = val;
-    setProduct(_product);
-  };
-
-  const onInputNumberChange = (e, name) => {
-    const val = e.value || 0;
-    let _product = { ...product };
-    _product[`${name}`] = val;
     setProduct(_product);
   };
 
@@ -477,10 +487,21 @@ const Product = () => {
               </div>
               <div className="field">
                 <label htmlFor="prod_type">Tipo de producto</label>
-                <InputText
+                {/* <InputText
                   id="prod_type"
                   value={product.prod_type}
                   onChange={(e) => onInputChange(e, "prod_type")}
+                  required
+                  
+                /> */}
+                <Dropdown
+                  id="prod_type"
+                  value={product.prod_type}
+                  // onChange={(e) => setDropdownValue(e.value)}
+                  onChange={(e) => onInputChange(e, "prod_type")}
+                  options={dropdownValues}
+                  optionLabel="name"
+                  placeholder="Seleccion el tipo de producto"
                   required
                   className={classNames({
                     "p-invalid": submitted && !product.prod_type,
@@ -543,27 +564,22 @@ const Product = () => {
                 )}
               </div>
 
-              <div className="formgrid grid">
-                <div className="field col">
-                  <label htmlFor="price">Precio</label>
-                  <InputNumber
-                    id="price"
-                    // value={product.price}
-                    onValueChange={(e) => onInputNumberChange(e, "price")}
-                    mode="currency"
-                    currency="USD"
-                    locale="en-US"
-                  />
-                </div>
-                <div className="field col">
-                  <label htmlFor="quantity">Cantidad</label>
-                  <InputNumber
-                    id="quantity"
-                    // value={product.quantity}
-                    onValueChange={(e) => onInputNumberChange(e, "quantity")}
-                    integeronly
-                  />
-                </div>
+              <div className="field">
+                <label htmlFor="prod_qty">Cantidad Kilogramos</label>
+                <InputText
+                  id="prod_qty"
+                  value={product.prod_qty}
+                  onChange={(e) => onInputChange(e, "prod_qty")}
+                  required
+                  className={classNames({
+                    "p-invalid": submitted && !product.prod_qty,
+                  })}
+                />
+                {submitted && !product.prod_qty && (
+                  <small className="p-invalid">
+                    La cantidad de producto es obligatorio.
+                  </small>
+                )}
               </div>
             </Dialog>
 
