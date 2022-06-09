@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/coldcade-react/static/css/main.c6a37c55.css",
+    "main.js": "/coldcade-react/static/js/main.46b35041.js",
+    "static/js/346.3e4f5893.chunk.js": "/coldcade-react/static/js/346.3e4f5893.chunk.js",
+    "static/media/primeicons.svg": "/coldcade-react/static/media/primeicons.c6e2053303524e39530c.svg",
+    "static/media/primeicons.eot": "/coldcade-react/static/media/primeicons.7fc4d8e224d1ff1b9c62.eot",
+    "static/media/primeicons.woff": "/coldcade-react/static/media/primeicons.449aa8c65cdc5c2a8686.woff",
+    "static/media/primeicons.ttf": "/coldcade-react/static/media/primeicons.91bacab1f083f2795272.ttf",
+    "static/media/blur-warehouse-background.png": "/coldcade-react/static/media/blur-warehouse-background.5384fd7905f6a46b6348.png",
+    "static/media/logo.png": "/coldcade-react/static/media/logo.95701787ea6fde5b001d.png",
+    "index.html": "/coldcade-react/index.html",
+    "main.c6a37c55.css.map": "/coldcade-react/static/css/main.c6a37c55.css.map",
+    "main.46b35041.js.map": "/coldcade-react/static/js/main.46b35041.js.map",
+    "346.3e4f5893.chunk.js.map": "/coldcade-react/static/js/346.3e4f5893.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c6a37c55.css",
+    "static/js/main.46b35041.js"
+  ]
+}
