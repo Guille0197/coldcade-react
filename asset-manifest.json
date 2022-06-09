@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/coldcade-react/static/css/main.c6a37c55.css",
-    "main.js": "/coldcade-react/static/js/main.46b35041.js",
+    "main.js": "/coldcade-react/static/js/main.a016a40d.js",
     "static/js/346.3e4f5893.chunk.js": "/coldcade-react/static/js/346.3e4f5893.chunk.js",
     "static/media/primeicons.svg": "/coldcade-react/static/media/primeicons.c6e2053303524e39530c.svg",
     "static/media/primeicons.eot": "/coldcade-react/static/media/primeicons.7fc4d8e224d1ff1b9c62.eot",
@@ -11,11 +11,11 @@
     "static/media/logo.png": "/coldcade-react/static/media/logo.95701787ea6fde5b001d.png",
     "index.html": "/coldcade-react/index.html",
     "main.c6a37c55.css.map": "/coldcade-react/static/css/main.c6a37c55.css.map",
-    "main.46b35041.js.map": "/coldcade-react/static/js/main.46b35041.js.map",
+    "main.a016a40d.js.map": "/coldcade-react/static/js/main.a016a40d.js.map",
     "346.3e4f5893.chunk.js.map": "/coldcade-react/static/js/346.3e4f5893.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c6a37c55.css",
-    "static/js/main.46b35041.js"
+    "static/js/main.a016a40d.js"
   ]
 }
