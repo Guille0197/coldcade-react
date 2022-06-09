@@ -67,7 +67,7 @@ const Product = () => {
     refetch,
     isFetching,
   } = useQuery("product", getProductsService, {
-    // refetchInterval: 1000,
+    refetchInterval: 1000,
   });
 
   const openNew = () => {
@@ -329,6 +329,15 @@ const Product = () => {
     );
   };
 
+  const cantidadBodyTemplate = (rowData) => {
+    return (
+      <>
+        <span className="p-column-title">Cant</span>
+        {rowData.prod_qty}
+      </>
+    );
+  };
+
   const productDialogFooter = (
     <>
       <Button
@@ -399,7 +408,7 @@ const Product = () => {
               onSelectionChange={(e) => setSelectedProducts(e.value)}
               dataKey="id"
               paginator
-              rows={10}
+              rows={5}
               rowsPerPageOptions={[5, 10, 25]}
               className="datatable-responsive"
               paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
@@ -418,14 +427,14 @@ const Product = () => {
                 header="Código"
                 sortable
                 body={codeBodyTemplate}
-                headerStyle={{ width: "14%", minWidth: "1rem" }}
+                headerStyle={{ width: "8%", minWidth: "1rem" }}
               ></Column>
               <Column
                 field="prod_name"
                 header="Nombre"
                 sortable
                 body={nameBodyTemplate}
-                headerStyle={{ width: "14%", minWidth: "10rem" }}
+                headerStyle={{ width: "10%", minWidth: "10rem" }}
               ></Column>
               <Column
                 field="prod_register_date"
@@ -448,13 +457,13 @@ const Product = () => {
                 body={categoryBodyTemplate}
                 headerStyle={{ width: "14%", minWidth: "10rem" }}
               ></Column>
-              {/* <Column
-                field="inventoryStatus"
+              <Column
+                field="prod_qty"
                 header="Cant. Inventario"
-                // body={statusBodyTemplate}
+                body={cantidadBodyTemplate}
                 sortable
                 headerStyle={{ width: "14%", minWidth: "10rem" }}
-              ></Column> */}
+              ></Column>
               <Column body={actionBodyTemplate}></Column>
             </DataTable>
 

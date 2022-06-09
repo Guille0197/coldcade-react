@@ -129,7 +129,7 @@ const Dashboard = (props) => {
     },
     {
       name: "Camion 3",
-      estatus: "Manteinimiento",
+      estatus: "Mantenimiento",
       capacidad: "15 Toneladas",
       conductor: "Jaime Cruz",
     },
