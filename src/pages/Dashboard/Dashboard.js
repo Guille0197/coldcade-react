@@ -116,25 +116,25 @@ const Dashboard = (props) => {
 
   const listCamiones = [
     {
-      name: "Camion 1",
+      name: "Camión 1",
       estatus: "Disponible",
       capacidad: "10 Toneladas",
       conductor: "Juan Perez",
     },
     {
-      name: "Camion 2",
+      name: "Camión 2",
       estatus: "Ocupado",
       capacidad: "22 Toneladas",
       conductor: "Carlos Lopez",
     },
     {
-      name: "Camion 3",
+      name: "Camión 3",
       estatus: "Mantenimiento",
       capacidad: "15 Toneladas",
       conductor: "Jaime Cruz",
     },
     {
-      name: "Camion 4",
+      name: "Camión 4",
       estatus: "Disponible",
       capacidad: "5 Toneladas",
       conductor: "Pedro Perez",

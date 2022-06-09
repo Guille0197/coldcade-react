@@ -391,35 +391,35 @@ const Camiones = () => {
   const CamionesList = [
     {
       code: "Cam-001",
-      name: "Camion 1",
+      name: "Camión 1",
       price: "$83000",
       category: "Categoria 1",
       inventoryStatus: "Disponible",
     },
     {
       code: "Cam-002",
-      name: "Camion 2",
+      name: "Camión 2",
       price: "$83000",
       category: "Categoria 2",
       inventoryStatus: "Ocupado",
     },
     {
       code: "Cam-003",
-      name: "Camion 3",
+      name: "Camión 3",
       price: "$83000",
       category: "Categoria 3",
       inventoryStatus: "Mantenimiento",
     },
     {
       code: "Cam-004",
-      name: "Camion 4",
+      name: "Camión 4",
       price: "$83000",
       category: "Categoria 4",
       inventoryStatus: "Disponible",
     },
     {
       code: "Cam-005",
-      name: "Camion 5",
+      name: "Camión 5",
       price: "$83000",
       category: "Categoria 5",
       inventoryStatus: "Ocupado",
@@ -461,21 +461,21 @@ const Camiones = () => {
               ></Column>
               <Column
                 field="code"
-                header="Código Camion"
+                header="Código Camión"
                 sortable
                 body={codeBodyTemplate}
                 headerStyle={{ width: "14%", minWidth: "10rem" }}
               ></Column>
               <Column
                 field="name"
-                header="Nombre Camion"
+                header="Nombre Camión"
                 sortable
                 body={nameBodyTemplate}
                 headerStyle={{ width: "14%", minWidth: "10rem" }}
               ></Column>
               <Column
                 field="price"
-                header="Valor Camion"
+                header="Valor Camión"
                 body={priceBodyTemplate}
                 sortable
                 headerStyle={{ width: "14%", minWidth: "8rem" }}
@@ -489,7 +489,7 @@ const Camiones = () => {
               ></Column>
               <Column
                 field="inventoryStatus"
-                header="Estado Camion"
+                header="Estado Camión"
                 body={statusBodyTemplate}
                 sortable
                 headerStyle={{ width: "14%", minWidth: "10rem" }}
