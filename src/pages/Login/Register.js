@@ -77,15 +77,11 @@ const Register = () => {
   const handleRegister = (params) => {
     postRegisterUser(params)
       .then(() => {
-        // addSuccessMessage(); // TODO: add success message
-        // alert("Registro exitoso");
+        addSuccessMessage();
         authenticated.signin(params, () => {
           navigate("/");
         });
         setLoading1(true);
-        // setTimeout(() => {
-        //   navigate("/");
-        // }, 1000);
       })
       .catch(() => {
         addErrorMessage();
@@ -96,6 +92,13 @@ const Register = () => {
     message.current.show({
       severity: "error",
       content: "Error al registrarse. Intente nuevamente.",
+    });
+  };
+
+  const addSuccessMessage = () => {
+    message.current.show({
+      severity: "success",
+      content: "Registro exitoso, iniciando sesión.",
     });
   };
 

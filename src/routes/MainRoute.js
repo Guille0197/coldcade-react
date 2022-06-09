@@ -9,6 +9,9 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import { RequireAuth } from "./RequireAuth";
 import { AuthProvider } from "./AuthProvider";
 import Product from "../pages/CRUD/Product/Product";
+import Contenedores from "../pages/contenedores";
+import Camiones from "../pages/Camiones";
+import Conductores from "../pages/Conductores";
 
 const MainRoute = () => (
   <AuthProvider>
@@ -30,19 +33,28 @@ const MainRoute = () => (
       ></Route>
       <Route
         exact
-        path="/empty"
+        path="/contenedores"
         element={
           <RequireAuth>
-            <EmptyPage />
+            <Contenedores />
           </RequireAuth>
         }
       ></Route>
       <Route
         exact
-        path="/crud"
+        path="/camiones"
         element={
           <RequireAuth>
-            <Crud />
+            <Camiones />
+          </RequireAuth>
+        }
+      ></Route>
+      <Route
+        exact
+        path="/conductores"
+        element={
+          <RequireAuth>
+            <Conductores />
           </RequireAuth>
         }
       ></Route>

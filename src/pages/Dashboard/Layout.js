@@ -103,8 +103,17 @@ const LayoutDashboard = ({ children }) => {
       label: "Páginas",
       icon: "pi pi-fw pi-clone",
       items: [
-        { label: "Crud", icon: "pi pi-fw pi-user-edit", to: "/crud" },
-        { label: "plantilla", icon: "pi pi-fw pi-circle-off", to: "/empty" },
+        {
+          label: "Contenedores",
+          icon: "pi pi-box",
+          to: "/contenedores",
+        },
+        { label: "Camiones", icon: "pi pi-car", to: "/camiones" },
+        {
+          label: "Conductores",
+          icon: "pi pi-users",
+          to: "/conductores",
+        },
         {
           label: "Productos",
           icon: "pi pi-shopping-bag",

@@ -67,7 +67,7 @@ const Product = () => {
     refetch,
     isFetching,
   } = useQuery("product", getProductsService, {
-    refetchInterval: 1000,
+    // refetchInterval: 1000,
   });
 
   const openNew = () => {
@@ -288,7 +288,7 @@ const Product = () => {
     return (
       <>
         <span className="p-column-title">Code</span>
-        {rowData.id}
+        {"PRO-0" + rowData.id}
       </>
     );
   };
