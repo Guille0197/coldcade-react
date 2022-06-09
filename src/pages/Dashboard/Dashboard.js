@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect, useRef } from "react";
 import { Menu } from "primereact/menu";
 import { Button } from "primereact/button";
@@ -113,6 +114,33 @@ const Dashboard = (props) => {
     });
   };
 
+  const listCamiones = [
+    {
+      name: "Camion 1",
+      estatus: "Disponible",
+      capacidad: "10 Toneladas",
+      conductor: "Juan Perez",
+    },
+    {
+      name: "Camion 2",
+      estatus: "Ocupado",
+      capacidad: "22 Toneladas",
+      conductor: "Carlos Lopez",
+    },
+    {
+      name: "Camion 3",
+      estatus: "Manteinimiento",
+      capacidad: "15 Toneladas",
+      conductor: "Jaime Cruz",
+    },
+    {
+      name: "Camion 4",
+      estatus: "Disponible",
+      capacidad: "5 Toneladas",
+      conductor: "Pedro Perez",
+    },
+  ];
+
   return (
     <LayoutDashboard>
       <div className="grid">
@@ -120,7 +148,9 @@ const Dashboard = (props) => {
           <div className="card mb-0">
             <div className="flex justify-content-between mb-3">
               <div>
-                <span className="block text-500 font-medium mb-3">Orders</span>
+                <span className="block text-500 font-medium mb-3">
+                  Total Ordenes
+                </span>
                 <div className="text-900 font-medium text-xl">152</div>
               </div>
               <div
@@ -130,26 +160,28 @@ const Dashboard = (props) => {
                 <i className="pi pi-shopping-cart text-blue-500 text-xl" />
               </div>
             </div>
-            <span className="text-green-500 font-medium">24 new </span>
-            <span className="text-500">since last visit</span>
+            <span className="text-green-500 font-medium">24 nuevas </span>
+            <span className="text-500">desde la última visita</span>
           </div>
         </div>
         <div className="col-12 lg:col-6 xl:col-3">
           <div className="card mb-0">
             <div className="flex justify-content-between mb-3">
               <div>
-                <span className="block text-500 font-medium mb-3">Revenue</span>
+                <span className="block text-500 font-medium mb-3">
+                  Ingresos
+                </span>
                 <div className="text-900 font-medium text-xl">$2.100</div>
               </div>
               <div
                 className="flex align-items-center justify-content-center bg-orange-100 border-round"
                 style={{ width: "2.5rem", height: "2.5rem" }}
               >
-                <i className="pi pi-map-marker text-orange-500 text-xl" />
+                <i className="pi pi-money-bill text-orange-500 text-xl" />
               </div>
             </div>
             <span className="text-green-500 font-medium">%52+ </span>
-            <span className="text-500">since last week</span>
+            <span className="text-500">desde la semana pasada</span>
           </div>
         </div>
         <div className="col-12 lg:col-6 xl:col-3">
@@ -157,19 +189,19 @@ const Dashboard = (props) => {
             <div className="flex justify-content-between mb-3">
               <div>
                 <span className="block text-500 font-medium mb-3">
-                  Customers
+                  Clientes
                 </span>
-                <div className="text-900 font-medium text-xl">28441</div>
+                <div className="text-900 font-medium text-xl">281</div>
               </div>
               <div
                 className="flex align-items-center justify-content-center bg-cyan-100 border-round"
                 style={{ width: "2.5rem", height: "2.5rem" }}
               >
-                <i className="pi pi-inbox text-cyan-500 text-xl" />
+                <i className="pi pi-users text-cyan-500 text-xl" />
               </div>
             </div>
-            <span className="text-green-500 font-medium">520 </span>
-            <span className="text-500">newly registered</span>
+            <span className="text-green-500 font-medium">20 </span>
+            <span className="text-500">recién registrado</span>
           </div>
         </div>
         <div className="col-12 lg:col-6 xl:col-3">
@@ -177,42 +209,33 @@ const Dashboard = (props) => {
             <div className="flex justify-content-between mb-3">
               <div>
                 <span className="block text-500 font-medium mb-3">
-                  Comments
+                  Total Productos
                 </span>
-                <div className="text-900 font-medium text-xl">152 Unread</div>
+                <div className="text-900 font-medium text-xl">
+                  152 registrados
+                </div>
               </div>
               <div
                 className="flex align-items-center justify-content-center bg-purple-100 border-round"
                 style={{ width: "2.5rem", height: "2.5rem" }}
               >
-                <i className="pi pi-comment text-purple-500 text-xl" />
+                <i className="pi pi-shopping-bag text-purple-500 text-xl" />
               </div>
             </div>
             <span className="text-green-500 font-medium">85 </span>
-            <span className="text-500">responded</span>
+            <span className="text-500">nuevos</span>
           </div>
         </div>
 
         <div className="col-12 xl:col-6">
           <div className="card">
-            <h5>Recent Sales</h5>
+            <h5>Estado Camiones</h5>
             <DataTable
-              value={products}
+              value={listCamiones}
               rows={5}
               paginator
               responsiveLayout="scroll"
             >
-              <Column
-                header="Image"
-                body={(data) => (
-                  <img
-                    className="shadow-2"
-                    src={`assets/demo/images/product/${data.image}`}
-                    alt={data.image}
-                    width="50"
-                  />
-                )}
-              />
               <Column
                 field="name"
                 header="Name"
@@ -220,54 +243,36 @@ const Dashboard = (props) => {
                 style={{ width: "35%" }}
               />
               <Column
-                field="price"
-                header="Price"
+                field="estatus"
+                header="Estatus"
                 sortable
                 style={{ width: "35%" }}
-                body={(data) => formatCurrency(data.price)}
               />
               <Column
-                header="View"
-                style={{ width: "15%" }}
-                body={() => (
-                  <>
-                    <Button
-                      icon="pi pi-search"
-                      type="button"
-                      className="p-button-text"
-                    />
-                  </>
-                )}
+                field="capacidad"
+                header="Capacidad"
+                sortable
+                style={{ width: "35%" }}
+              />
+              <Column
+                field="conductor"
+                header="Conductor"
+                sortable
+                style={{ width: "35%" }}
               />
             </DataTable>
           </div>
           <div className="card">
             <div className="flex justify-content-between align-items-center mb-5">
-              <h5>Best Selling Products</h5>
-              <div>
-                <Button
-                  type="button"
-                  icon="pi pi-ellipsis-v"
-                  className="p-button-rounded p-button-text p-button-plain"
-                  onClick={(event) => menu1.current.toggle(event)}
-                />
-                <Menu
-                  ref={menu1}
-                  popup
-                  model={[
-                    { label: "Add New", icon: "pi pi-fw pi-plus" },
-                    { label: "Remove", icon: "pi pi-fw pi-minus" },
-                  ]}
-                />
-              </div>
+              <h5>Productos más vendidos</h5>
             </div>
             <ul className="list-none p-0 m-0">
               <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                 <div>
                   <span className="text-900 font-medium mr-2 mb-1 md:mb-0">
-                    Space T-Shirt
+                    Cebolla
                   </span>
-                  <div className="mt-1 text-600">Clothing</div>
+                  <div className="mt-1 text-600">Vegetales</div>
                 </div>
                 <div className="mt-2 md:mt-0 flex align-items-center">
                   <div
@@ -285,9 +290,9 @@ const Dashboard = (props) => {
               <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                 <div>
                   <span className="text-900 font-medium mr-2 mb-1 md:mb-0">
-                    Portal Sticker
+                    Fresas
                   </span>
-                  <div className="mt-1 text-600">Accessories</div>
+                  <div className="mt-1 text-600">Frutas</div>
                 </div>
                 <div className="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
                   <div
@@ -305,9 +310,9 @@ const Dashboard = (props) => {
               <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                 <div>
                   <span className="text-900 font-medium mr-2 mb-1 md:mb-0">
-                    Supernova Sticker
+                    Tomates
                   </span>
-                  <div className="mt-1 text-600">Accessories</div>
+                  <div className="mt-1 text-600">Vegetales</div>
                 </div>
                 <div className="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
                   <div
@@ -325,9 +330,9 @@ const Dashboard = (props) => {
               <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                 <div>
                   <span className="text-900 font-medium mr-2 mb-1 md:mb-0">
-                    Wonders Notebook
+                    Maíz
                   </span>
-                  <div className="mt-1 text-600">Office</div>
+                  <div className="mt-1 text-600">Granos</div>
                 </div>
                 <div className="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
                   <div
@@ -345,9 +350,9 @@ const Dashboard = (props) => {
               <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                 <div>
                   <span className="text-900 font-medium mr-2 mb-1 md:mb-0">
-                    Mat Black Case
+                    Yuca
                   </span>
-                  <div className="mt-1 text-600">Accessories</div>
+                  <div className="mt-1 text-600">Tubérculos</div>
                 </div>
                 <div className="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
                   <div
@@ -365,9 +370,9 @@ const Dashboard = (props) => {
               <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                 <div>
                   <span className="text-900 font-medium mr-2 mb-1 md:mb-0">
-                    Robots T-Shirt
+                    Sandía
                   </span>
-                  <div className="mt-1 text-600">Clothing</div>
+                  <div className="mt-1 text-600">Frutas</div>
                 </div>
                 <div className="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
                   <div
@@ -388,8 +393,13 @@ const Dashboard = (props) => {
 
         <div className="col-12 xl:col-6">
           <div className="card">
-            <h5>Sales Overview</h5>
+            <h5>Resumen de ventas</h5>
             <Chart type="line" data={lineData} options={lineOptions} />
+          </div>
+
+          <div className="card">
+            <h5>Gráfica de pedidos</h5>
+            <Chart type="bar" data={lineData} options={lineOptions} />
           </div>
         </div>
       </div>

@@ -93,7 +93,7 @@ const LayoutDashboard = ({ children }) => {
       label: "Inicio",
       items: [
         {
-          label: "Dashboard",
+          label: "Inicio",
           icon: "pi pi-fw pi-home",
           to: "/",
         },
